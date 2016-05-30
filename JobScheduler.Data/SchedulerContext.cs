@@ -9,5 +9,5 @@ namespace JobScheduler.Data
 {
     public class SchedulerContext : DbContext
     {
-    }
+    } 
 }
