@@ -13,6 +13,10 @@ namespace JobScheduler.Data.Entry
         /// </summary>
         public string id;
         /// <summary>
+        /// trigger name
+        /// </summary>
+        public string name;
+        /// <summary>
         /// job id
         /// </summary>
         public string job_id;

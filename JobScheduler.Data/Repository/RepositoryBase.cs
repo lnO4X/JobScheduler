@@ -12,13 +12,13 @@ namespace JobScheduler.Data.Repository
   : class, new()
     {
         public DbContext context; //提供IOC注入方式接口
-        public RepositoryBase(SchedulerContext context)
+        public RepositoryBase(JobSchedulerContext context)
         {
             this.context = context;
         } //测试用
         public RepositoryBase()
         {
-            this.context = new SchedulerContext();
+            this.context = new JobSchedulerContext();
         }
         #region IRepository<T> 成员
         public TEntity Create()

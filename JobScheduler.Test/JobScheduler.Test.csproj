@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2D726033-911C-421E-9B3A-1F09326C2085}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{85CE3202-14E0-4AC3-9F93-0B940919C504}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JobScheduler.Data</RootNamespace>
-    <AssemblyName>JobScheduler.Data</AssemblyName>
+    <RootNamespace>JobScheduler.Test</RootNamespace>
+    <AssemblyName>JobScheduler.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,17 +29,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>JobScheduler.Test.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,18 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entry\EJS_Scheduler.cs" />
-    <Compile Include="JobSchedulerContext.cs" />
-    <Compile Include="Entry\EJS_Job.cs" />
-    <Compile Include="Entry\EJS_Job_History.cs" />
-    <Compile Include="Entry\EJS_Trigger.cs" />
-    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="HelloJob.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="TenSecondJob.cs" />
+    <Compile Include="TestData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JobScheduler.Core\JobScheduler.Core.csproj">
+      <Project>{54a65be7-e322-4b5e-8e7c-081c6cd08cb2}</Project>
+      <Name>JobScheduler.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JobScheduler.Data\JobScheduler.Data.csproj">
+      <Project>{2d726033-911c-421e-9b3a-1f09326c2085}</Project>
+      <Name>JobScheduler.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,28 +6,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobScheduler.Core.Trigger
+namespace JobScheduler.Core.Builder
 {
     public class JobBuilder
     {
-        private EJS_Job _job;
+        private JobDetail _job;
         private static JobBuilder _builder;
 
         public static JobBuilder Create<T>()
             where T : IJob
         {
             _builder = new JobBuilder();
-            _builder._job = new EJS_Job();
+            _builder._job = new JobDetail();
+            _builder._job.id = Guid.NewGuid().ToString();
             _builder._job.job_class_name = typeof(T).FullName;
             return _builder;
         }
 
-        public static JobBuilder SetIdentifiyName(string name)
+        public JobBuilder SetIdentifiyName(string name)
         {
             _builder._job.name = name;
             return _builder;
         }
-        public EJS_Job Build()
+        public IJobDetail Build()
         {
             return _job;
         }
